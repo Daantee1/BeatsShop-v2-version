@@ -1,0 +1,25 @@
+<div class=" mt-5 ">
+    
+    <form (ngSubmit)="changePassword()" class="max-w-sm mx-auto border w-full p-5 rounded-md bg-gradient-to-b from-white to-gray-300 ">
+        <h3 class="mb-4 font-semibold">Zmiana hasła</h3>
+        <div class="mb-5">
+          <label for="oldPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stare hasło</label>
+          <input type="password" id="oldPassword" name="password" [(ngModel)]="user.oldPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  required>
+        </div>
+        <div class="mb-5">
+          <label for="Newpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nowe hasło</label>
+          <input type="password" id="Newpassword" name="Newpassword" [(ngModel)]="user.newPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required>
+        </div>
+        <div class="mb-5">
+            <label for="NewpasswordConfirm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Potwierdź nowe hasło</label>
+            <input type="password" id="NewpasswordConfirm" name="NewpasswordConfirm" [(ngModel)]="user.newPasswordC" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required>
+          </div>
+        <div class="flex items-start mb-5">
+          
+        </div>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Zmień hasło</button>
+        <small *ngIf="passwordMatch" class="block text-red-700">Hasła się nie zgadzają lub stare hasło jest nieprawidłowe!</small>
+
+      </form>
+      
+    </div>

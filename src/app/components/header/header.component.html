@@ -1,0 +1,84 @@
+
+<ng-container >
+
+
+<nav class="font-body bg-black">
+    <div class=" flex flex-wrap items-center justify-between mx-auto p-4">
+      <a [routerLink]="'/Home'" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="./assets/icon-navbar.png" class="h-12 w-12 bg-transparent" alt="Flowbite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white ">Broducer</span>
+      </a>
+      <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden  focus:outline-none focus:ring-2  text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   ">
+          <li>
+            <a  class="block py-2 px-3 text-white  rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 bg-blue-600 md:dark:bg-transparent" aria-current="page">Strona główna</a>
+          </li>
+          
+          <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3   md:hover:bg-transparent md:border-0 rounded md:hover:text-blue-700 md:p-0 md:w-auto text-white md:dark:hover:text-blue-500 focus:text-white border-gray-700 hover:bg-gray-700 md:dark:hover:bg-transparent">Bity<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg></button>
+             
+              <div id="dropdownNavbar" class="z-10 hidden font-normal  divide-y rounded-lg shadow w-44 bg-gray-700 divide-gray-600">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a [routerLink]="'#'" class="block px-4 py-2  hover:bg-gray-600 text-gray-200 rounded hover:text-white">Najnowsze bity</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2  hover:bg-gray-600 text-gray-200 rounded hover:text-white">Najpopularniejsze bity</a>
+                    </li>
+                   
+                  </ul>
+              </div>
+          </li>
+          <li>
+            <a [routerLink]="'/Mix-Master-Page'" class="block py-2 px-3  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 rounded text-white md:dark:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:dark:hover:bg-transparent">Mix/Master</a>
+          </li>
+          
+          <li>
+            <a [routerLink]="'/About-Me-Page'" class="block py-2 px-3  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 rounded text-white md:dark:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:dark:hover:bg-transparent">O mnie</a>
+          </li>
+          <li [hidden]="loggedIn">
+            <a [routerLink]="'/Login-Page'" class="block py-2 px-3  md:w-20  md:border-0  md:p-0 rounded text-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-800 md:dark:hover:text-blue-500  hover:text-white md:dark:hover:bg-transparent">Zaloguj się</a>
+          </li>
+          <li [hidden]="!loggedIn">
+            <img [routerLink]="'/Cart-Page'" class="w-8 h-8 rounded-full cursor-pointer" src="./assets/shopping-cart.png" alt="">
+          </li>
+          
+          <li [hidden]="!loggedIn" class="align-middle" >
+
+            <button type="button" class="flex text-sm bg-gray-800  rounded-full md:me-0 focus:ring-4 ml-3  focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+              <span class="sr-only">Otwórz menu użytkownika</span>
+              <img class="w-8 h-8 rounded-full align-middle bottom-4" src="./assets/avatar.png" alt="user photo">
+              
+            </button>
+            <!-- Dropdown menu -->
+            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+              <div class="px-4 py-3">
+                <span class="block text-sm text-gray-900 dark:text-white">{{currentUser.login}}</span>
+                <span class="block text-sm text-gray-500 truncate dark:text-gray-400">Jestem nowy!</span>
+              </div>
+              <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                  <a [routerLink]="'/Dashborad'" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-900 hover:text-white">Panel główny</a>
+                </li>
+               
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-900 hover:text-white">Wyloguj się</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</ng-container>
+
+
